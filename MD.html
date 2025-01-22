@@ -1,66 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<script type="text/javascript">
-    function validateform() {
-        var ownerName = document.Medical.ownerName.value.length;
-        var phoneNumber = document.Medical.phoneNumber.value.length;
-        var ownerID = document.Medical.ownerId.value.length;
-        var pettype = document.Medical.pettype.value.length;
-        var breed = document.Medical.breed.value.length;
-        var gender = document.Medical.gender.value.length;
-        var vaccinated = document.Medical.vaccinated.value.length;
-       
-        // Validate that none of the fields are empty
-        if (ownerName == 0) {
-            alert("Owner Name is required.");
-            return false;
-        }
-        if (phoneNumber == 0) {
-            alert("Phone Number is required.");
-            return false;
-        }
-        if (ownerID == 0) {
-            alert("Owner ID is required.");
-            return false;
-        }
-        if (pettype == 0) {
-            alert("Pet Type is required.");
-            return false;
-        }
-        if (breed == 0) {
-            alert("Breed is required.");
-            return false;
-        }
-        if (gender == 0) {
-            alert("Gender is required.");
-            return false;
-        }
-        if (vaccinated == 0) {
-            alert("Vaccination status is required.");
-            return false;
-        }
-        // If all fields are valid, return true to allow form submission
-        return true;
-    }
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Registration Form</title>
     <style>
-        body{
-         background-image: url(M.jpg);
-       background-repeat: no-repeat;
-       background-attachment: fixed;
-       background-position: center;
-       background-size: cover;}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            position: relative;
+        }
+
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('M.jpg'); /* Your background image */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1; /* Places it behind content */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            width: 450px;
+            margin: 80px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 18px;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .form-buttons {
+            text-align: center;
+        }
+
+        .form-container input[type="file"] {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                width: 90%;
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input[type="text"],
+            input[type="tel"],
+            input[type="file"],
+            select {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
     </style>
+
+    <script type="text/javascript">
+        function validateform() {
+            var ownerName = document.Medical.ownerName.value.length;
+            var phoneNumber = document.Medical.phoneNumber.value.length;
+            var ownerID = document.Medical.ownerID.value.length;
+            var pettype = document.Medical.pettype.value.length;
+            var breed = document.Medical.breed.value.length;
+            var gender = document.Medical.gender.value.length;
+            var vaccinated = document.Medical.vaccinated.value.length;
+
+            if (ownerName == 0) {
+                alert("Owner Name is required.");
+                return false;
+            }
+            if (phoneNumber == 0) {
+                alert("Phone Number is required.");
+                return false;
+            }
+            if (ownerID == 0) {
+                alert("Owner ID is required.");
+                return false;
+            }
+            if (pettype == 0) {
+                alert("Pet Type is required.");
+                return false;
+            }
+            if (breed == 0) {
+                alert("Breed is required.");
+                return false;
+            }
+            if (gender == 0) {
+                alert("Gender is required.");
+                return false;
+            }
+            if (vaccinated == 0) {
+                alert("Vaccination status is required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
+
     <div class="form-container">
-        <h2>Registration Form</h2>
+        <h2>Pet Registration Form</h2>
         <form name="Medical" method="post" onsubmit="return validateform()">
-            <!-- Personal Information -->
+           
             <fieldset>
                 <legend>Personal Information</legend>
                 <label for="ownerName">Owner's Name:</label>
@@ -73,11 +201,10 @@
                 <input type="text" id="ownerID" name="ownerID">
             </fieldset>
 
-            <!-- Pet Information -->
             <fieldset>
                 <legend>Pet Information</legend>
                 <label for="petType">Pet's Type:</label>
-                <select id="pet type" name="pet type">
+                <select id="pettype" name="pettype">
                     <option value="dog">Dog</option>
                     <option value="cat">Cat</option>
                     <option value="Others">Others</option>
@@ -93,7 +220,6 @@
                 </select>
             </fieldset>
 
-            <!--  Pet Health Information -->
             <fieldset>
                 <legend>Pet Health Information</legend>
                 <label>Vaccinated:</label>
@@ -101,16 +227,16 @@
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
-                <label for="pet passport">Pet Passport (Attach if available):</label>
-                <input type="file" id="pet passport" name="pet passport">
-            </fieldset> <br> <br>
+                <label for="petPassport">Pet Passport (Attach if available):</label>
+                <input type="file" id="petPassport" name="petPassport">
+            </fieldset>
 
-            <!-- Submit Buttons -->
             <div class="form-buttons">
                 <button type="submit">Submit Form</button>
                 <button type="reset">Clear</button>
             </div>
         </form>
     </div>
+
 </body>
 </html>
