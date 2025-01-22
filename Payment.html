@@ -3,73 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment form</title>
+    <title>Payment Form</title>
     <style>
-        body{
+        body {
+            background-image: url('pay.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif; 
+        }
 
-            /* background Image*/
-            background-image: url(pay.jpg);
-       background-repeat: no-repeat;
-       background-attachment: fixed;
-       background-position: center;
-       background-size: cover;
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-         font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        margin-top: 50px;
+        h2 {
+            margin-bottom: 20px;
+        }
 
-        display: grid;
-        place-items: center;
-        height: 300px;
-        margin: 0;
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-    
-      }
-      #buy{
-        font-size: 24px;
-        font-weight: bold;
-        color:black;
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
 
-      }
-      #box{
-        
-      }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
       
     </style>
 </head>
 <body>
-<p id="buy"></p>
-<div class="form-container" id="box">
-    <center>
-<form action="p.process.php" name="payment">
-    Address : <input type="text" name="add" id="dress"> <br><br>
-     Payment Method<select name="method" id="method">
-        <option> Cash</option>
-        <option> Card</option>
-    </select> <br><br>
-    Phone No: <input type="text" id="num" name="bur"> <br><br>
-    <input type="reset" value="reset" name="clear" id="res">
-    <input type="submit" value="Get Contact" id="call" name="sub">
+    <p id="buy"></p> 
 
+    <div class="container"> 
+        <h2>Payment Information</h2>
+        <form action="p.process.php" name="payment">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="add" required><br><br>
 
+            <label for="paymentMethod">Payment Method:</label>
+            <select name="method" id="paymentMethod" required>
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+            </select><br><br>
 
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="bur" required><br><br>
 
-</form> </center></div>
+            <input type="reset" value="Reset" id="reset">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
 
-<script>
-       const text = "Thank you for buying  a lovely pet.";
+    <script>
+        const text = "Thank you for buying a lovely pet.";
+        let index = 0;
 
-let index = 0;
-
-function textbuy(){
- if(index<text.length){
-   document.getElementById("buy").innerHTML += text.charAt(index);
-   index++;
-   setTimeout(textbuy,100);
- }
-}
-textbuy();
-
-</script>
+        function textbuy() {
+            if (index < text.length) {
+                document.getElementById("buy").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(textbuy, 100); 
+            }
+        }
+        textbuy(); 
+    </script>
 </body>
 </html>
